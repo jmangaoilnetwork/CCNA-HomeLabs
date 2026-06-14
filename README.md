@@ -15,7 +15,6 @@ for the CCNA 200-301 certification using Jeremy's IT Lab
 ## Tools Used
 - Cisco Packet Tracer
 - Jeremy's IT Lab (YouTube)
-- NetworkChuck Summer of CCNA 2026
 
 ## Certifications In Progress
 - CCNA 200-301 (Target: Fall 2026)
