@@ -41,12 +41,12 @@
 - G0/1: trunk to SW2, allowed VLANs 10, 30, native VLAN 1001
 
 ### Verification
-- show ip route (SW3): C routes present for VLAN 10, 20, 30 
-- show interfaces vlan 10/20/30: SVIs up/up 
-- show ip interface brief (SW3): all SVIs show up/up 
-- Ping from VLAN 10 host to VLAN 20 host - Success!!
-- Ping from VLAN 10 host to VLAN 30 host - Success!!
-- Ping from VLAN 20 host to VLAN 30 host - Success!!
+- show ip route (SW3): C routes present for VLAN 10, 20, 30 ✅
+- show interfaces vlan 10/20/30: SVIs up/up ✅
+- show ip interface brief (SW3): all SVIs show up/up ✅
+- Ping from VLAN 10 host to VLAN 20 host - ✅
+- Ping from VLAN 10 host to VLAN 30 host - ✅
+- Ping from VLAN 20 host to VLAN 30 host - ✅
 
 ### What I Learned
 - ip routing is mandatory on the Layer 3 switch —
