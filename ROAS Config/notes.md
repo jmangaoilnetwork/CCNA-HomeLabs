@@ -24,11 +24,11 @@
 - F0/12 — access VLAN 30 (PC1)
 
 ### Verification
-- show ip route: C routes present for all three VLAN subnets 
-- show ip interface brief: all subinterfaces up/up 
-- Ping from VLAN 10 (PC0) to VLAN 20 (PC2) - Success!!
-- Ping from VLAN 10 (PC0) to VLAN 30 (PC1) - Success!!
-- Ping from VLAN 20 (PC2) to VLAN 30 (PC1) - Success!!
+- show ip route: C routes present for all three VLAN subnets ✅
+- show ip interface brief: all subinterfaces up/up ✅
+- Ping from VLAN 10 (PC0) to VLAN 20 (PC2) - ✅
+- Ping from VLAN 10 (PC0) to VLAN 30 (PC1) - ✅
+- Ping from VLAN 20 (PC2) to VLAN 30 (PC1) - ✅
 
 ### What I Learned
 - Physical interface must be up with no IP address assigned —
