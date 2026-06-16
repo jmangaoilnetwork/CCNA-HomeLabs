@@ -12,6 +12,7 @@ for the CCNA 200-301 certification using Jeremy's IT Lab
 | Inter-VLAN Routing via Layer 3 Switch | SVI-based inter-VLAN routing using a multilayer switch | SW1, SW2 (2960-24TT), SW3 (3560-24PS) | ✅ |
 | OSPF Multi-Router | OSPF Area 0 across three routers with loopback Router IDs, point-to-point links, and passive interfaces | R1, R2, R3 (ISR 4331), SW1, SW2 (2960-24TT) | ✅ |
 | EtherChannel + Inter-VLAN Routing | LACP EtherChannel between access switches integrated into existing L3 Switch inter-VLAN routing topology | SW1, SW2 (2960-24TT), SW3 (3560-24PS) | ✅ |
+| STP/RSTP (Rapid PVST+) | Per-VLAN Rapid Spanning Tree across five switches with Root Bridge election, load balancing, PortFast, BPDU Guard, and Root Guard | SW1-SW5 (2960-24TT) | ✅ |
 
 ## Tools Used
 - Cisco Packet Tracer
@@ -32,6 +33,13 @@ for the CCNA 200-301 certification using Jeremy's IT Lab
   trunk configuration, link failure behavior
 - STP interaction with EtherChannel — logical
   single link, no ports blocked
+- Rapid PVST+ — per-VLAN STP instances
+- Root Bridge election and priority manipulation
+- Per-VLAN load balancing via PVST+
+- STP port roles — Root, Designated, Alternate/Blocked
+- PortFast and BPDU Guard on access ports
+- Root Guard on root bridge downlinks
+- Secondary Root Bridge design and failover
 - OSPF single-area configuration (Area 0)
 - OSPF Router ID — manual configuration and
   loopback interfaces
