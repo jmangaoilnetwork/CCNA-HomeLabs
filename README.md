@@ -23,55 +23,43 @@ for the CCNA 200-301 certification using Jeremy's IT Lab
 - CCNA 200-301 (Target: Fall 2026)
 
 ## Key Concepts Practiced
+
+**Switching & VLANs**
 - VLAN creation and access port assignment
-- Trunk port configuration (802.1Q)
-- Native VLAN security best practice (non-default VLAN)
-- Router on a Stick (ROAS) via subinterfaces
-- Layer 3 inter-VLAN routing via SVIs
-- ip routing command on multilayer switches
+- Trunk port configuration (802.1Q), native VLAN security (non-default VLAN)
 - SVI up/up conditions
-- EtherChannel (LACP Active/Active) — bundling,
-  trunk configuration, link failure behavior
-- EtherChannel (PAgP Desirable/Desirable) — Cisco
-  proprietary negotiation protocol
-- L3 switch trunk requirement — switchport trunk
-  encapsulation dot1q before switchport mode trunk
-- STP interaction with EtherChannel — logical
-  single link, no ports blocked
+- L2 switch management plane — VLAN SVI + ip default-gateway for off-subnet reachability
+
+**EtherChannel**
+- LACP (Active/Active) and PAgP (Desirable/Desirable)
+- L3 switch trunk requirement — switchport trunk encapsulation dot1q
+- STP interaction with EtherChannel — logical single link, no ports blocked
+
+**Spanning Tree**
 - Rapid PVST+ — per-VLAN STP instances
 - Root Bridge election and priority manipulation
-- Per-VLAN load balancing via PVST+
-- STP port roles — Root, Designated, Alternate/Blocked
-- PortFast and BPDU Guard on access ports
-- Root Guard on root bridge downlinks
-- Secondary Root Bridge design and failover
-- OSPF single-area configuration (Area 0)
-- OSPF Router ID — manual configuration and
-  loopback interfaces
-- OSPF passive-interface on LAN-facing ports
-- OSPF point-to-point network type on router links
-- Two methods of OSPF network advertisement:
-  network command vs ip ospf [process] area [area]
-- /30 subnets for point-to-point router connections
-- OSPF neighbor adjacency and Full state verification
-- OSPF process IDs — locally significant
-- OSPF default route redistribution —
-  default-information originate
-- L3 switch routed port (no switchport) for
-  uplink to router
-- DHCP server configuration — pools, exclusions,
-  default-router, dns-server, lease
-- DHCP relay — ip helper-address on SVI to forward
-  client Discover to centralized DHCP server
-- Extended Named ACL — inter-VLAN traffic restriction
-  applied inbound on SVI
-- ACL placement — inbound on source SVI to block
-  traffic as close to source as possible
-- NTP hierarchy — ntp master, ntp server,
-  stratum levels, synchronization verification
-- L2 switch management plane — VLAN SVI +
-  ip default-gateway required for off-subnet
-  management reachability (NTP, SSH, SNMP)
+- Per-VLAN load balancing, port roles (Root/Designated/Alternate)
+- PortFast, BPDU Guard, Root Guard, secondary root bridge failover
+
+**Inter-VLAN Routing**
+- Router on a Stick (ROAS) via subinterfaces
+- Layer 3 switch SVIs, ip routing, routed port (no switchport)
+
+**OSPF**
+- Single-area (Area 0), Router ID via loopback, passive-interface
+- Network advertisement — network command vs ip ospf area
+- Point-to-point network type, /30 link subnets, Full state verification
+- Default route redistribution — default-information originate
+
+**DHCP**
+- Server configuration — pools, exclusions, default-router, dns-server, lease
+- DHCP relay — ip helper-address on SVI
+
+**ACLs**
+- Extended Named ACL — inter-VLAN restriction, inbound on source SVI
+
+**Network Services**
+- NTP hierarchy — ntp master, ntp server, stratum verification
 - FHRPs (HSRP, VRRP, GLBP) — conceptual understanding
 
 ## Repository Structure
