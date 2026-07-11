@@ -1,11 +1,9 @@
 # CCNA Home Labs — Karl
-
 Practice labs built in Cisco Packet Tracer while studying
 for the CCNA 200-301 certification using Jeremy's IT Lab
 (YouTube) and NetworkChuck's Summer of CCNA 2026.
 
 ## Labs Completed
-
 | Project | Topic | Devices Used | Status |
 |---------|-------|-------------|--------|
 | Inter-VLAN Routing via ROAS | Router on a Stick using subinterfaces for inter-VLAN routing | R1 (ISR 1331), SW1 (2960-24TT) | ✅ |
@@ -14,6 +12,7 @@ for the CCNA 200-301 certification using Jeremy's IT Lab
 | EtherChannel + Inter-VLAN Routing | LACP EtherChannel between access switches integrated into existing L3 Switch inter-VLAN routing topology | SW1, SW2 (2960-24TT), SW3 (3560-24PS) | ✅ |
 | STP/RSTP (Rapid PVST+) | Per-VLAN Rapid Spanning Tree across five switches with Root Bridge election, load balancing, PortFast, BPDU Guard, and Root Guard | SW1-SW5 (2960-24TT) | ✅ |
 | Full-Stack Campus Network — EtherChannel + OSPF + DHCP Relay + ACL Integration | Multi-technology integration lab: LACP EtherChannel, OSPF with default route redistribution, centralized DHCP with ip helper-address relay, Extended Named ACL for inter-VLAN traffic restriction, Rapid PVST+ root bridge, NTP hierarchy, L2 switch management plane | R-WAN, R-EDGE (ISR 4331), DSW-CORE (3650), ASW1, ASW2 (2960-24TT) | ✅ |
+| Management Plane — SSH + Syslog + SNMP + FTP/TFTP | Add-on to Full-Stack lab: SSH hardening (SSHv2, RSA 1024, login local), centralized Syslog, SNMPv2c community strings, FTP credentials, IOS backup via TFTP and FTP to a dedicated management server on VLAN 99 | R-EDGE (ISR 4331), DSW-CORE (3650), ASW1, ASW2 (2960-24TT), Mgmt-Server | ✅ |
 
 ## Tools Used
 - Cisco Packet Tracer
@@ -61,6 +60,14 @@ for the CCNA 200-301 certification using Jeremy's IT Lab
 **Network Services**
 - NTP hierarchy — ntp master, ntp server, stratum verification
 - FHRPs (HSRP, VRRP, GLBP) — conceptual understanding
+
+**Management Plane**
+- SSH hardening — SSHv2, RSA 1024, login local, transport input ssh
+- Syslog — centralized logging to external server, logging trap,
+  service timestamps, logging buffered, logging synchronous
+- SNMPv2c — RO/RW community strings, access control behavior
+- FTP/TFTP — ip ftp username/password, copy flash: tftp:,
+  copy flash: ftp:, IOS image backup and restore workflow
 
 ## Repository Structure
 Each lab folder contains:
