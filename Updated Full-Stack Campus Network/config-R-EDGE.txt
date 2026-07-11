@@ -1,0 +1,120 @@
+Current configuration : 1829 bytes
+!
+version 15.4
+service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R-EDGE
+!
+!
+!
+!
+ip dhcp excluded-address 192.168.10.1 192.168.10.10
+ip dhcp excluded-address 192.168.20.1 192.168.20.10
+ip dhcp excluded-address 192.168.30.1 192.168.30.10
+ip dhcp excluded-address 192.168.99.1 192.168.99.10
+!
+ip dhcp pool VLAN10
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ dns-server 8.8.8.8
+ip dhcp pool VLAN20
+ network 192.168.20.0 255.255.255.0
+ default-router 192.168.20.1
+ dns-server 8.8.8.8
+ip dhcp pool VLAN30
+ network 192.168.30.0 255.255.255.0
+ default-router 192.168.30.1
+ dns-server 8.8.8.8
+ip dhcp pool VLAN99
+ network 192.168.99.0 255.255.255.0
+ default-router 192.168.99.1
+ dns-server 8.8.8.8
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+username netadmin secret 5 $1$mERr$Pq3/lr0agnISq0fxb9TUZ0
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ftp username Cisco
+ip ftp password ccna
+ip ssh version 2
+ip domain-name corp.local
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0/0
+ description ## to R-WAN ##
+ ip address 203.0.113.1 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0/1
+ description ## to DSW-CORE ##
+ ip address 10.50.1.1 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0/2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ log-adjacency-changes
+ network 10.50.1.0 0.0.0.3 area 0
+ default-information originate
+!
+ip classless
+ip route 0.0.0.0 0.0.0.0 203.0.113.2 
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+snmp-server community NetReadOnly RO
+snmp-server community NetReadWrite RW
+!
+logging trap debugging
+logging 192.168.99.50
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ logging synchronous
+ login local
+ transport input ssh
+!
+!
+ntp master 1
+!
+end

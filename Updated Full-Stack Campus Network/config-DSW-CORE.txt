@@ -1,0 +1,207 @@
+Current configuration : 3517 bytes
+!
+version 16.3.2
+service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname DSW-CORE
+!
+!
+no profinet
+!
+!
+!
+!
+!
+!
+no ip cef
+ip routing
+!
+no ipv6 cef
+!
+!
+!
+username netadmin secret 5 $1$mERr$Pq3/lr0agnISq0fxb9TUZ0
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+ip domain-name corp.local
+!
+!
+spanning-tree mode pvst
+spanning-tree vlan 1,10,20,30,99 priority 4096
+!
+!
+!
+!
+!
+!
+interface Port-channel1
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,40,99
+ switchport mode trunk
+!
+interface Port-channel2
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,40,99
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/1
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,99
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface GigabitEthernet1/0/2
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,99
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface GigabitEthernet1/0/3
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,99
+ switchport mode trunk
+ channel-group 2 mode active
+!
+interface GigabitEthernet1/0/4
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,99
+ switchport mode trunk
+ channel-group 2 mode active
+!
+interface GigabitEthernet1/0/5
+!
+interface GigabitEthernet1/0/6
+!
+interface GigabitEthernet1/0/7
+!
+interface GigabitEthernet1/0/8
+!
+interface GigabitEthernet1/0/9
+!
+interface GigabitEthernet1/0/10
+!
+interface GigabitEthernet1/0/11
+!
+interface GigabitEthernet1/0/12
+!
+interface GigabitEthernet1/0/13
+!
+interface GigabitEthernet1/0/14
+!
+interface GigabitEthernet1/0/15
+!
+interface GigabitEthernet1/0/16
+!
+interface GigabitEthernet1/0/17
+!
+interface GigabitEthernet1/0/18
+!
+interface GigabitEthernet1/0/19
+!
+interface GigabitEthernet1/0/20
+!
+interface GigabitEthernet1/0/21
+!
+interface GigabitEthernet1/0/22
+!
+interface GigabitEthernet1/0/23
+!
+interface GigabitEthernet1/0/24
+ description ## to R-EDGE ##
+ no switchport
+ ip address 10.50.1.2 255.255.255.252
+ ip helper-address 10.50.1.1
+ ip ospf 1 area 0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet1/1/1
+!
+interface GigabitEthernet1/1/2
+!
+interface GigabitEthernet1/1/3
+!
+interface GigabitEthernet1/1/4
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ mac-address 0050.0f78.cb01
+ ip address 192.168.10.1 255.255.255.0
+ ip helper-address 10.50.1.1
+ ip ospf 1 area 0
+!
+interface Vlan20
+ mac-address 0050.0f78.cb02
+ ip address 192.168.20.1 255.255.255.0
+ ip helper-address 10.50.1.1
+ ip ospf 1 area 0
+!
+interface Vlan30
+ mac-address 0050.0f78.cb03
+ ip address 192.168.30.1 255.255.255.0
+ ip helper-address 10.50.1.1
+ ip ospf 1 area 0
+!
+interface Vlan40
+ mac-address 0050.0f78.cb05
+ no ip address
+!
+interface Vlan99
+ mac-address 0050.0f78.cb04
+ ip address 192.168.99.1 255.255.255.0
+ ip helper-address 10.50.1.1
+ ip ospf 1 area 0
+!
+router ospf 1
+ log-adjacency-changes
+ passive-interface Vlan10
+ passive-interface Vlan20
+ passive-interface Vlan30
+ passive-interface Vlan99
+ network 192.168.0.0 0.0.255.255 area 0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+ip access-list extended RESTRICT_HR
+ deny ip 192.168.20.0 0.0.0.255 192.168.30.0 0.0.0.255
+ permit ip any any
+!
+!
+!
+!
+snmp-server community NetReadOnly RO
+snmp-server community NetReadWrite RW
+!
+logging trap debugging
+logging 192.168.99.50
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ logging synchronous
+ login local
+ transport input ssh
+!
+!
+!
+ntp server 10.50.1.1
+!
+end
